@@ -1,0 +1,48 @@
+BootStrap: debootstrap
+OSVersion: xenial
+MirrorURL: http://us.archive.ubuntu.com/ubuntu/
+
+
+%runscript
+    #exec /usr/local/snap/bin/gpt "-h"
+
+%files
+    #esa-snap_sentinel_unix_6_0.sh
+
+%post
+#change file execution rights for snap installer
+    #chmod +x esa-snap_sentinel_unix_6_0.sh
+
+# install snap with gpt
+    #./esa-snap_sentinel_unix_6_0.sh -q
+
+# link gpt so it can be used systemwide
+    ln -s /usr/local/snap/bin/gpt /usr/bin/gpt
+
+# set gpt max memory to 4GB
+    sed -i -e 's/-Xmx1G/-Xmx4G/g' /usr/local/snap/bin/gpt.vmoptions
+
+# get and install python3 with various libraries
+    sed -i 's/$/ universe/' /etc/apt/sources.list
+
+    apt-get -y install software-properties-common build-essential
+
+    apt-get -y update
+    apt-get -y install python3 wget python3-pip
+    add-apt-repository -y ppa:ubuntugis/ppa
+
+    apt-get -y update
+    apt-get -y install gdal-bin python-gdal python3-gdal python-pyproj libhdf4-dev python3-h5py libgrib-api-dev libgrib2c-dev libnetcdf-dev netcdf-bin
+    apt-get -y update
+
+    pip3 install jupyter matplotlib numpy pandas scipy
+    pip3 install xarray  
+    pip3 install pyepr 
+    pip3 install cython pyproj
+    pip3 install python-hdf4 glymur lxml
+    pip3 install netcdf4
+    
+
+
+
+
