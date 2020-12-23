@@ -29,9 +29,11 @@ data in order to perform various statistical tests on the basis of distributions
    
 4. Data exploration (making of distribution plots) - [distribution_plots.py](https://github.com/g-kaur/Sentinel3_Chlorophyll_concentration_validation/blob/master/Tool/distribution_plots.py)<br/>
    This process helps in understanding the distribution of the two datasets. The comparison of distributions of chl-a estimates obtained by BC ferries and satellite (from the same date, time and geographical location) are made. The distribution plots can be found in 
-   **'Distribution_Plots'** directory. Most of the ferry-dataset distribution plots show uniform distribution while few of the satellite-dataset distribution plots show non-parametric distribution. 
+   **'Distribution_Plots'** directory. Most of the ferry-dataset distribution plots show uniform distribution while few of the satellite-dataset distribution plots show non-parametric distribution.<br/>
    
-   Run command **"$python distribution_plots.py"** <br/>
+Run command **"$python distribution_plots.py"** <br/>
+
+ The picture below shows an example of 2 comparisons of distribution plots.<br/>
     <img src = "https://github.com/g-kaur/Sentinel3_Chlorophyll_concentration_validation/blob/master/Images/plot_comparison.PNG" alt= "Distribution Plots Comparison" height = "400" width = "700">
     
     
